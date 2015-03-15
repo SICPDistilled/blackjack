@@ -1,5 +1,7 @@
 # blackjack
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SICPDistilled/blackjack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Testing your understanding of higher order functions by creating strategys for [Blackjack](https://en.wikipedia.org/wiki/Blackjack) (also called Pontoon or 21)
 
 We are going to build an increasingly complex model of playing Blackjack alongside strategys to play the game
