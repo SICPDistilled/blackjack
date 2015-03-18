@@ -1,7 +1,7 @@
 (ns blackjack.simple-hand)
 
 (defn deal []
-  (inc (rand-int 10)))
+  {:rank (inc (rand-int 10))})
 
 (defn new-hand [] [(deal)])
 
@@ -12,4 +12,4 @@
   (conj hand card))
 
 (defn total [hand]
-  (reduce + hand))
+  (reduce + (map :rank hand)))

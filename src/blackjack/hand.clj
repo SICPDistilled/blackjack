@@ -27,8 +27,21 @@
   (conj hand card))
 
 (defn total [hand]
-  (reduce + (map (fn [{:keys [rank]}]
-                   (if (number? rank)
-                     rank
-                     10))
-                 hand)))
+  (defn ace? [card]
+    (= :A (:rank card)))
+  (defn score [{rank :rank}]
+    (if (number? rank)
+                  rank
+                  10))
+  (let [aces (filter ace? hand)
+        subtotal
+          (->> hand
+            (remove ace?)
+             (map score)
+             (reduce + 0))]
+    (reduce (fn [score _]
+              (if (> (+ score 11) 21)
+                (+ score 1)
+                (+ score 11)))
+            subtotal
+            aces)))

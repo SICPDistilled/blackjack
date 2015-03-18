@@ -33,15 +33,15 @@
 
 (defn play-hand [strategy hand opponent-up-card]
   (cond (> (total hand) 21)
-        hand
+          hand
 
         (strategy hand opponent-up-card) ; Asks 'should I hit?'
-        (recur strategy
-               (add-card hand (deal)) ; Recurs, adding a card
-               opponent-up-card)
+          (recur strategy
+                (add-card hand (deal)) ; Recurs, adding a card
+                opponent-up-card)
 
         :else
-        hand))
+          hand))
 
 (defn play-game [player-strategy house-strategy]
   (let [house-initial-hand (new-hand)
